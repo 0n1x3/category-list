@@ -35,7 +35,7 @@ const CategoryItem = styled.button<{ isActive: boolean }>`
 
 const CategoryList: React.FC<CategoryListProps> = ({
   categories,
-  selectedId,
+  selectedIds,
   onSelect
 }) => {
   return (
@@ -44,7 +44,7 @@ const CategoryList: React.FC<CategoryListProps> = ({
         {categories.map((category) => (
           <CategoryItem
             key={category.id}
-            isActive={category.id === selectedId}
+            isActive={selectedIds.includes(category.id)}
             onClick={() => onSelect(category.id)}
           >
             {category.name}

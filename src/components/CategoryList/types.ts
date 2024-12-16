@@ -5,6 +5,6 @@ export interface Category {
   
   export interface CategoryListProps {
     categories: Category[];
-    selectedId?: string | number;
+    selectedIds: (string | number)[];
     onSelect: (id: string | number) => void;
   }
