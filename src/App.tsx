@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CategoryList from './components/CategoryList/CategoryList';
 import { Category } from './components/CategoryList/types';
+import './App.css';
 
 const App: React.FC = () => {
   const [selectedId, setSelectedId] = useState<string | number>('1');
