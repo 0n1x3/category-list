@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import CategoryList from './components/CategoryList/CategoryList';
+import StarAnimation from './components/StarAnimation/StarAnimation';
 import { Category } from './components/CategoryList/types';
 import './App.css';
 
@@ -17,20 +18,16 @@ const App: React.FC = () => {
 
   const handleSelect = (id: string | number) => {
     if (id === '1') {
-      // Если выбрана категория "Все", снимаем выбор с остальных
       setSelectedIds(['1']);
       return;
     }
 
     setSelectedIds(prev => {
-      // Если была выбрана категория "Все", убираем её
       const filtered = prev.filter(item => item !== '1');
       
       if (prev.includes(id)) {
-        // Если категория уже выбрана - убираем её
         return filtered.filter(item => item !== id);
       } else {
-        // Добавляем новую категорию
         return [...filtered, id];
       }
     });
@@ -43,6 +40,9 @@ const App: React.FC = () => {
         selectedIds={selectedIds}
         onSelect={handleSelect}
       />
+      <div style={{ height: 'calc(100vh - 100px)', position: 'relative' }}>
+        <StarAnimation />
+      </div>
     </div>
   );
 };

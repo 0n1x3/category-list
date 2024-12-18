@@ -18,18 +18,18 @@ const List = styled.div`
   padding: 16px;
 `;
 
-const CategoryItem = styled.button<{ isActive: boolean }>`
+const CategoryItem = styled.button<{ $isActive: boolean }>`
   padding: 8px 16px;
   border-radius: 20px;
   border: none;
-  background: ${props => props.isActive ? '#6C5CE7' : '#2D2D2D'};
-  color: ${props => props.isActive ? '#FFFFFF' : '#A0A0A0'};
+  background: ${props => props.$isActive ? '#6C5CE7' : '#2D2D2D'};
+  color: ${props => props.$isActive ? '#FFFFFF' : '#A0A0A0'};
   cursor: pointer;
   white-space: nowrap;
   transition: all 0.2s ease;
   
   &:hover {
-    background: ${props => props.isActive ? '#6C5CE7' : '#3D3D3D'};
+    background: ${props => props.$isActive ? '#6C5CE7' : '#3D3D3D'};
   }
 `;
 
@@ -44,7 +44,7 @@ const CategoryList: React.FC<CategoryListProps> = ({
         {categories.map((category) => (
           <CategoryItem
             key={category.id}
-            isActive={selectedIds.includes(category.id)}
+            $isActive={selectedIds.includes(category.id)}
             onClick={() => onSelect(category.id)}
           >
             {category.name}
