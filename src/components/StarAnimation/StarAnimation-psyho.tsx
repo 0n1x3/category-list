@@ -46,98 +46,54 @@ const StarAnimation: React.FC = () => {
         value: "transparent",
       },
     },
-    interactivity: {
-      events: {
-        onHover: {
-          enable: true,
-          mode: "repulse"
-        },
-        resize: {
-          enable: true
-        }
-      },
-      modes: {
-        repulse: {
-          distance: 100,
-          duration: 0.4
-        }
-      }
-    },
-    detectRetina: true,
-    emitters: [
-      {
-        direction: "none",
-        position: {
-          x: 50,
-          y: 50
-        },
-        rate: {
-          delay: 0.2,
-          quantity: 1
-        },
-        size: {
-          width: 0,
-          height: 0
-        },
-        particles: {
-          shape: {
-            type: "star",
-            options: {
-              star: {
-                sides: 5,
-                inset: 2
-              }
-            }
-          },
-          size: {
-            value: { min: 2, max: 4 }
-          },
-          color: {
-            value: ["#FFD700", "#FFA500", "#FFB347"]
-          }
-        }
-      },
-      {
-        direction: "none",
-        position: {
-          x: 50,
-          y: 50
-        },
-        rate: {
-          delay: 0.2,
-          quantity: 1
-        },
-        size: {
-          width: 0,
-          height: 0
-        },
-        particles: {
-          shape: {
-            type: "char",
-            options: {
-              char: {
-                value: ["✦"],
-                font: "128px arial",
-                style: "bold",
-                weight: "900"
-              }
-            }
-          },
-          size: {
-            value: { min: 15, max: 25 },
-          },
-          color: {
-            value: ["#FFD700", "#FFA500", "#FFB347"]
-          }
-        }
-      }
-    ],
     particles: {
       number: {
         value: 0,
       },
+      color: {
+        value: "#FFD700",
+        animation: {
+          enable: true,
+          speed: 20,
+          sync: true,
+          offset: {
+            min: 0,
+            max: 25
+          }
+        }
+      },
+      shape: {
+        type: ["star", "char"],
+        options: {
+          star: {
+            sides: 5,
+            inset: 2
+          },
+          char: {
+            value: ["✦", "✧", "⋆"],
+            font: "20px arial",
+            style: "",
+            weight: ""
+          }
+        }
+      },
       opacity: {
-        value: { min: 0.4, max: 0.8 }
+        value: { min: 0.4, max: 0.8 },
+        animation: {
+          enable: true,
+          speed: 0.3,
+          startValue: "max",
+          sync: false
+        }
+      },
+      size: {
+        value: { min: 2, max: 5 },
+        animation: {
+          enable: true,
+          speed: 0.5,
+          startValue: "max",
+          sync: false
+        }
       },
       move: {
         enable: true,
@@ -159,7 +115,48 @@ const StarAnimation: React.FC = () => {
         },
         count: 1
       }
-    }
+    },
+    interactivity: {
+      events: {
+        onHover: {
+          enable: true,
+          mode: "repulse"
+        },
+        resize: {
+          enable: true
+        }
+      },
+      modes: {
+        repulse: {
+          distance: 100,
+          duration: 0.4
+        }
+      }
+    },
+    detectRetina: true,
+    emitters: [{
+      direction: "none",
+      position: {
+        x: 50,
+        y: 50
+      },
+      rate: {
+        delay: 0.2,
+        quantity: 2
+      },
+      size: {
+        width: 0,
+        height: 0
+      },
+      spawnColor: {
+        value: "#FFD700",
+        animation: {
+          enable: true,
+          speed: 5,
+          minimumValue: "#FFA500"
+        }
+      }
+    }]
   };
 
   return (
