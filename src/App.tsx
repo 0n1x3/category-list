@@ -40,7 +40,7 @@ const App: React.FC = () => {
         selectedIds={selectedIds}
         onSelect={handleSelect}
       />
-      <div style={{ height: 'calc(100vh - 100px)', position: 'relative' }}>
+      <div style={{ height: '100%', position: 'relative', marginTop: '20px' }}>
         <StarAnimation />
       </div>
     </div>
